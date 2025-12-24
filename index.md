@@ -1,9 +1,8 @@
 ---
 layout: default
-title: Home
+title: Erick Martinez - Developer Portfolio
 ---
 
-# Hello World 👋
+<div id="react-hero"></div>
 
-This site is built with **Jekyll**, **custom CSS**, and **asdf-managed dependencies**.
-
+<script src="/assets/js/react-bundle.js"></script>

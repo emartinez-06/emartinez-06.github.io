@@ -1,0 +1,17 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Build
+dist/
