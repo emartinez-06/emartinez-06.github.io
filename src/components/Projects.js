@@ -201,35 +201,41 @@ const Projects = () => {
   const currentWork = [
     {
       title: "Dotfiles & Configs",
-      terminalTitle: "DotFiles",
-      intro: "Personal development environment setup with custom configurations",
-      description: "A curated collection of configuration files for my development workflow, including shell scripts, editor settings, and system preferences.",
-      contribution: "Maintaining and evolving my personal dotfiles repository with Neovim configs, tmux settings, and zsh customizations for optimal productivity.",
-      repoLink: "https://github.com/yourusername/dotfiles",
-      tags: ["Neovim", "Shell", "Config"]
+      terminalTitle: ".dotfiles",
+      intro: "",
+      description: "My custom config files including a custom sketchybar that connect to aerospace tiles displaying core information on the current tile. A Iterm + Tmux + Nvim config that overhauls the old terminal. A custom Utilsnips libary inspired by Gilles Catrol and made for LaTeX notes",
+      repoLink: "https://github.com/emartinez-06/.dotfiles",
+      tags: ["Neovim", "Tmux", "Aerospace", "Iterm", "Utilsnips", "sketchybar"]
     },
     {
       title: "Neovim Setup",
       terminalTitle: "NeoVim",
       intro: "Heavily customized Neovim configuration with modern IDE features",
-      description: "A full-featured Neovim setup with LSP, treesitter, telescope, and custom keybindings tailored to my workflow.",
-      contribution: "Built from scratch using Lua, featuring custom plugin integrations, theme customizations, and productivity-focused keymaps.",
-      repoLink: "https://github.com/yourusername/nvim-config",
-      tags: ["Lua", "Neovim", "LSP", "IDE"]
+      description: "A full-featured Neovim setup with LSP, treesitter, auto completion, Git intergration, and custom keybindings tailored to my workflow.",
+      repoLink: "https://github.com/emartinez-06/.dotfiles/nvim",
+      tags: ["Lua", "Neovim", "LSP", "Git"]
     },
     {
       title: "This Website",
-      terminalTitle: "Website",
+      terminalTitle: "Portfolio",
       intro: "Personal portfolio built with React and Jekyll",
       description: "A modern portfolio website featuring terminal-inspired aesthetics, smooth animations, and a clean, professional design.",
-      contribution: "Designed and developed from the ground up using React components, SCSS for styling, and Jekyll for static site generation.",
+      contribution: "Designed using React components, SCSS for styling, and Jekyll for static site generation.",
       repoLink: "https://github.com/emartinez-06/emartinez-06.github.io",
       demoLink: "https://emartinez-06.github.io",
-      tags: ["React", "Jekyll", "SCSS", "Web"]
+      tags: ["React", "Jekyll", "SCSS"]
     }
   ];
 
   const projects = [
+      {
+      title: "2025 Fall Engagement",
+      terminalTitle: "CGB Engagement",
+      intro: "Strategic technology consulting for digital transformation",
+      description: "A strategic advisory engagement focused on modernizing the technology infrastructure of a commerical manufacturing client to support future scalability.",
+      contribution: "Evaluated Enterprise Resource Planning (ERP) suites to consolidate dispersed systems and translated complex technical constraints into actionable business strategies.",
+      tags: ["ERP Analysis", "Technical Consulting", "System Architecture"]
+    },
     {
       title: "CSI 1430 Capstone: Geometria",
       terminalTitle: "Geometria",
@@ -239,25 +245,8 @@ const Projects = () => {
       repoLink: "https://github.com/emartinez-06/Geometria",
       demoLink: "/assets/projects/one/CSI 1430 Group Project N4.G3.pptx",
       tags: ["C++", "SDL2", "Game Physics", "Git"]
-    },
-    {
-      title: "2025 Fall Engagement",
-      terminalTitle: "CGB Engagement",
-      intro: "Strategic technology consulting for manufacturing modernization",
-      description: "A strategic advisory engagement focused on modernizing the technology infrastructure of a manufacturing firm to support future scalability.",
-      contribution: "Evaluated Enterprise Resource Planning (ERP) suites to consolidate dispersed systems and translated complex technical constraints into actionable business strategies.",
-      tags: ["ERP Analysis", "Technical Consulting", "System Architecture"]
-    },
-    {
-      title: "Project Gamma",
-      terminalTitle: "Project Gamma",
-      intro: "High-performance web application with advanced caching",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      contribution: "Optimized algorithm performance and implemented comprehensive testing suite.",
-      repoLink: "https://github.com/yourusername/project-gamma",
-      demoLink: "https://project-gamma.demo",
-      tags: ["Python", "Django", "Redis"]
     }
+    
   ];
 
   const [showFirstTitle, setShowFirstTitle] = useState(false);

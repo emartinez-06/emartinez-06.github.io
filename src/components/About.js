@@ -13,7 +13,7 @@ const About = () => {
           </div>
           <div className="vim-content">
             <div className="vim-line">
-              <span className="vim-text">I'm currently pursuing a double major in Mathematics and Computer Science at Baylor University. I'm honing my skills through relevant coursework, whether in Data Structures and Algorithms or Multivariable Calculus and Linear Algebra. I have a knack for curiosity and love pursuing knowledge, both academically and in personal projects.</span>
+              <span className="vim-text">I'm currently pursuing a double major in Mathematics and Computer Science at Baylor University. I'm honing my skills through relevant coursework, whether in Data Structures and Algorithms or Multivariable Calculus and Linear Algebra.</span>
             </div>
             <div className="vim-line">
               <span className="vim-text"></span>
@@ -23,8 +23,8 @@ const About = () => {
             </div>
           </div>
           <div className="vim-statusbar">
-            <span className="vim-mode">-- NORMAL --</span>
-            <span className="vim-position">3 lines</span>
+            <span className="vim-mode">-- VISUAL --</span>
+            <span className="vim-position">2 lines</span>
           </div>
         </div>
       </div>
