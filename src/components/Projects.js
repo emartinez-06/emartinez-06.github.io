@@ -36,9 +36,9 @@ const TerminalText = ({ text, delay = 0, speed = 60 }) => {
   );
 };
 
-const ProjectCard = ({ title, description, contribution, repoLink, demoLink, image, tags, intro, terminalTitle }) => {
+const ProjectCard = ({ title, description, contribution, repoLink, demoLink, image, tags, intro, terminalTitle, isActive }) => {
   return (
-    <div className="project-card-new">
+    <div className={`project-card-carousel ${isActive ? 'active' : 'inactive'}`}>
       <div className="card-top">
         <div className="card-thumbnail">
           {terminalTitle ? (
@@ -47,9 +47,6 @@ const ProjectCard = ({ title, description, contribution, repoLink, demoLink, ima
             <img src={image || 'https://via.placeholder.com/400x250'} alt={title} />
           )}
           <div className="nvim-chrome"></div>
-          <div className="card-overlay">
-            <p className="card-intro">{intro || description}</p>
-          </div>
         </div>
         {tags && tags.length > 0 && (
           <div className="card-tags">
@@ -62,40 +59,138 @@ const ProjectCard = ({ title, description, contribution, repoLink, demoLink, ima
 
       <div className="card-bottom">
         <h3 className="card-title">{title}</h3>
-        <div className="card-hover-content">
-          <div className="card-content-wrapper">
-            <div className="card-content-left">
-              <span className="card-description-label">Description</span>
-              <p className="card-description">{description}</p>
-            </div>
-            <div className="card-content-right">
+        {isActive && (
+          <div className="card-content">
+            <div className="card-content-wrapper">
+              <div className="card-content-section">
+                <span className="card-description-label">Description</span>
+                <p className="card-description">{description}</p>
+              </div>
               {contribution && (
-                <div className="card-contribution">
-                  <span className="contribution-label">My Contribution</span>
-                  <p>{contribution}</p>
+                <div className="card-content-section">
+                  <div className="card-contribution">
+                    <span className="contribution-label">My Contribution</span>
+                    <p>{contribution}</p>
+                  </div>
                 </div>
               )}
             </div>
-          </div>
-          <div className="card-links">
-            {repoLink && (
-              <a href={repoLink} className="card-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                </svg>
-                GitHub
-              </a>
+            {(repoLink || demoLink) && (
+              <div className="card-links">
+                {repoLink && (
+                  <a href={repoLink} className="card-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                    GitHub
+                  </a>
+                )}
+                {demoLink && (
+                  <a href={demoLink} className="card-link" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0z"/>
+                      <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+                    </svg>
+                    Demo
+                  </a>
+                )}
+              </div>
             )}
-            {demoLink && (
-              <a href={demoLink} className="card-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0z"/>
-                  <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-                </svg>
-                Demo
-              </a>
-            )}
           </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const Carousel = ({ projects, title, showTitle }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [cardOffset, setCardOffset] = useState(1000);
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') {
+      handlePrev();
+    } else if (e.key === 'ArrowRight') {
+      handleNext();
+    }
+  };
+
+  useEffect(() => {
+    const updateCardOffset = () => {
+      const cardWidth = Math.min(900, window.innerWidth * 0.9);
+      setCardOffset(cardWidth + 100);
+    };
+
+    updateCardOffset();
+    window.addEventListener('resize', updateCardOffset);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('resize', updateCardOffset);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  return (
+    <div className="projects-section">
+      <h2 className="section-title">
+        {showTitle && <TerminalText text={title} delay={0} speed={50} />}
+      </h2>
+      <div className="carousel-container">
+        <button className="carousel-nav carousel-nav-left" onClick={handlePrev} aria-label="Previous project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div className="carousel-wrapper">
+          <div className="carousel-track-centered">
+            {projects.map((project, index) => {
+              const offset = index - activeIndex;
+              const isActive = index === activeIndex;
+
+              return (
+                <div
+                  key={index}
+                  className={`carousel-slide ${isActive ? 'center' : ''}`}
+                  style={{
+                    transform: `translateX(calc(-50% + ${offset * cardOffset}px)) scale(${isActive ? 1 : 0.8})`,
+                    opacity: isActive ? 1 : 0.3,
+                    filter: isActive ? 'blur(0px)' : 'blur(4px)',
+                    zIndex: isActive ? 10 : 1,
+                    pointerEvents: isActive ? 'auto' : 'none'
+                  }}
+                >
+                  <ProjectCard {...project} isActive={isActive} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <button className="carousel-nav carousel-nav-right" onClick={handleNext} aria-label="Next project">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div className="carousel-indicators">
+          {projects.map((_, index) => (
+            <button
+              key={index}
+              className={`carousel-indicator ${index === activeIndex ? 'active' : ''}`}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Go to project ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -196,33 +291,19 @@ const Projects = () => {
   return (
     <section id="projects" className="section projects">
       <div className="container">
-        <div className="projects-section">
-          <h2 className="section-title">
-            {showFirstTitle && <TerminalText text="What I'm Currently Working On" delay={0} speed={50} />}
-          </h2>
-          <div className="projects-carousel">
-            <div className="carousel-track">
-              {currentWork.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-          </div>
-        </div>
+        <Carousel
+          projects={currentWork}
+          title="What I'm Currently Working On"
+          showTitle={showFirstTitle}
+        />
 
         <div className="projects-divider"></div>
 
-        <div className="projects-section">
-          <h2 className="section-title">
-            {showSecondTitle && <TerminalText text="Projects" delay={0} speed={50} />}
-          </h2>
-          <div className="projects-carousel">
-            <div className="carousel-track">
-              {projects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-              ))}
-            </div>
-          </div>
-        </div>
+        <Carousel
+          projects={projects}
+          title="Projects"
+          showTitle={showSecondTitle}
+        />
       </div>
     </section>
   );
