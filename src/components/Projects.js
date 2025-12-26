@@ -125,7 +125,7 @@ const Carousel = ({ projects, title, showTitle }) => {
 
   useEffect(() => {
     const updateCardOffset = () => {
-      const cardWidth = Math.min(900, window.innerWidth * 0.9);
+      const cardWidth = Math.min(750, window.innerWidth * 0.85);
       setCardOffset(cardWidth + 100);
     };
 
