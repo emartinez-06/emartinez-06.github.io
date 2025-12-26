@@ -7,15 +7,15 @@ A modern developer portfolio built with Jekyll, React, and SCSS featuring a term
 ```
 emartinez-06.github.io/
 ├── src/                          # React source files (MAIN CUSTOMIZATION AREA)
-│   ├── components/
-│   │   └── Hero.js              # ⭐ Main content file - customize your text here
-│   ├── index.js                 # React entry point
-│   └── webpack.config.js        # Webpack build configuration
-│
-├── assets/                       # Compiled assets
-│   ├── css/
-│   │   └── main.scss            # ⭐ Main styles - customize colors and layout
-│   └── js/
+    │   ├── components/
+    │   │   └── Hero.js              # ⭐ Main content file - customize your text here
+    │   ├── index.js                 # React entry point
+    │   └── webpack.config.js        # Webpack build configuration
+    │
+    ├── assets/                       # Compiled assets
+    │   ├── css/
+    │   │   └── main.scss            # ⭐ Main styles - customize colors and layout
+    │   └── js/
 │       └── react-bundle.js      # Compiled React bundle (auto-generated)
 │
 ├── _sass/                        # SCSS partials

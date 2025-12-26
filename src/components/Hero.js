@@ -52,14 +52,6 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      <nav className="nav">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
       <div className="hero-content">
         <div className="terminal-prompt">
           <span className="user">erick</span>
@@ -76,10 +68,10 @@ const Hero = () => {
 
         {showSubtitle && (
           <p className="hero-subtitle fade-in">
-            <TerminalText 
-              text="Mathematics and Computer Science // Baylor '28 // Driven learner" 
-              delay={0} 
-              speed={60} 
+            <TerminalText
+              text="Mathematics & Computer Science, Baylor '28"
+              delay={0}
+              speed={60}
             />
           </p>
         )}
